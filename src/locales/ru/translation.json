@@ -1,4 +1,94 @@
-{
+{    "Avatar":{
+        "Profile":"Профиль",
+        "Logout":"Выйти из аккаунта"
+    },
+        "Profile":{
+        "h1":"Ваш Профиль",
+        "h2":"Смена пароля",
+        "labelone":"Текущий пароль",
+        "labeltwo":"Новый пароль",
+        "labelFree":"Подтвердите пароль",
+        "button":"Сохранить"
+    },
+        "GeneralTabs":{
+  "cpuModel": "Модель процессора",
+  "cpuCoresPhysical": "Количество ядер (физических)",
+  "cpuCoresLogical": "Количество ядер (логических)",
+  "maxFrequency": "Максимальная частота",
+  "minFrequency": "Минимальная частота",
+  "notSpecified": "Не указано",
+    "serverName": "Имя сервера",
+  "ipAddress": "IP-адрес",
+  "osInfo": "Операционная система",
+  "additionalInfo": "Дополнительная информация",
+  "loadingData": "Загрузка данных..."
+    },
+    "SettingsTabs":{
+        "UserTabs":{
+            "h3":"Настройки пользователей",
+            "Login":"Логин",
+            "Name":"Имя",
+            "Surname":"Фамилия",
+            "Department":"Департамент",
+            "Position":"Позиция",
+            "Role":"Роль",
+            "Actions":"Действия",
+            "Delete":"Удалить",
+            "AddUser":"Добавить пользователя",
+            "Password":"Пароль",
+            "Cancel":"Отмена",
+            "Save":"Сохранить"
+        },
+        "ServerTabs":{
+            "h3":"Настройка сервера",
+            "h4":"Добавление Нового сервера",
+            "Name":"Название",
+            "IP":"IP Адрес",
+            "Hostname": "Хост",
+            "Delete":"Удалить",
+            "AddServer":"Добавить сервер",
+            "Token":"Серверный токен",
+            "Close":"Закрыть",
+            "Edit":"Изменить"
+        },
+        "DesignTabs":{
+            "h3":"Настройка дизайна",
+            "labelone":"Тема",
+            "Black": "Темная",
+            "White":"Светлая",
+            "Language":"Язык"
+        }
+    },
+    "ContentTabs":{
+        "Time":{
+            "Oneminutes":"1 минута",
+            "fiveminutes":"5 минут",
+            "fiveteenminutes":"15 минут",
+            "Onehour":"1 час",
+            "Oneday":"1 день",
+            "Oneweek":"1 неделя",
+            "OneMorth":"1 месяц"
+        },
+        "Metric":{
+            "General":"Общие характеристики",
+            "CPU":"ЦПУ",
+            "Memory":"Память",
+            "Disk":"Дисковое пространство",
+            "GPU":"ГПУ",
+            "Network":"Сеть",
+            "Swap":"Подкачка"
+
+        },
+        "ServerInfoTabs":{
+            "Status":"Статус",
+            "Address":"Адресс",
+            "OS":"ОС",
+            "CPU":"ЦПУ",
+            "Memory":"Память",
+            "Disk":"Дисковое пространство"
+        }
+    },
+    "MenuServers":"Сервера",
     "Login":{
         "H2":"Добро пожаловать!",
         "p":"Войдите, чтобы продолжить",
@@ -7,6 +97,13 @@
         "labelpassword":"Пароль",
         "inputpassword":"Введите пароль",
         "buttonname":"Войти"
+    },
+    "Loading":"Loading...",
+    "Setting":{
+        "h2":"Настройки",
+        "Design":"Дизайн",
+        "User":"Пользователи",
+        "Server":"Сервер"
     },
     "Monitoring":{
         "SideBarRight":{
@@ -44,8 +141,5 @@
         "ElementSetting":"Настройки",
         "ElementHelp":"Справочник"
 
-    },
-    "Avatar":{
-        
     }
 }

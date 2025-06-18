@@ -6,7 +6,7 @@ import "./HelpPage.scss";
 const HelpPage: React.FC = () => {
   const [sections, setSections] = useState<any[]>([]);
 
-  // Загрузка данных из JSON-файла
+
   useEffect(() => {
     fetch("/help.json")
       .then((response) => response.json())
@@ -16,10 +16,7 @@ const HelpPage: React.FC = () => {
 
   return (
     <div className="help-page">
-      {/* Левая панель */}
       <HelpSidebar sections={sections} />
-
-      {/* Правая часть (основной контент) */}
       <HelpContent sections={sections} />
     </div>
   );

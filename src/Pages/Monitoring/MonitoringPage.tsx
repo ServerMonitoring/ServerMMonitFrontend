@@ -5,6 +5,7 @@ import "./Monitoring.scss"
 import { getmininfoServer } from "../../API/serverapi";
 import { RootState } from "../../state/RootReduceer";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 interface Server {
   idserver: number;
@@ -23,6 +24,7 @@ export default function MonitoringPage() {
   const [servers, setServers] = useState<Server[]>([]);
   const [selectedServer, setSelectedServer] = useState<Server | null>(null);
   const jwt = useSelector((state: RootState) => state.auth.user.token);
+  const {t}=  useTranslation();
   // Загрузка данных из JSON-файла
   useEffect(() => {
      async function getAllServer(){
@@ -46,7 +48,7 @@ export default function MonitoringPage() {
   }
 
   if (!selectedServer) {
-    return <div>Loading...</div>;
+    return <div>{t('Loading')}</div>;
   }
 
   return (

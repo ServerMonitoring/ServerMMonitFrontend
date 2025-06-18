@@ -4,6 +4,7 @@ import "./MenuServer.scss"
 import { useSelector } from "react-redux";
 import { getmininfoServer } from "../../API/serverapi";
 import { RootState } from "../../state/RootReduceer";
+import { useTranslation } from "react-i18next";
 
 interface Server {
   idserver: number;
@@ -15,6 +16,7 @@ interface Server {
 
 const ServersPage: React.FC = () => {
   const [servers, setServers] = useState<Server[]>([]);
+  const {t}= useTranslation()
   const jwt  = useSelector((state:RootState) =>( state.auth.user.token));
   // Загрузка данных из JSON-файла
   useEffect(() =>{
@@ -32,7 +34,7 @@ const ServersPage: React.FC = () => {
 
   return (
     <div className="servers-page">
-      <h1>Servers</h1>
+      <h1>{t("MenuServers")}</h1>
       <ServerList servers={servers} />
     </div>
   );

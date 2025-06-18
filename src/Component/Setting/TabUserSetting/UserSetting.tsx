@@ -4,6 +4,7 @@ import { deleteOneUser, getListUsers } from "../../../API/adminapi";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../state/RootReduceer";
 import { signUp } from "../../../API/authapi";
+import { useTranslation } from "react-i18next";
 
 interface User {
   userId: number;
@@ -20,7 +21,7 @@ interface User {
 
 export default  function UserSettings() {
   const [listuser,setListUser] = useState<User[]>([])
-  
+  const {t}=useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null); // Текущий редактируемый пользователь
   const jwt  = useSelector((state:RootState) => state.auth.user.token);
@@ -94,19 +95,19 @@ export default  function UserSettings() {
 
   return (
     <div className="user-settings">
-      <h3>User Settings</h3>
+      <h3>{t('SettingsTabs.UserTabs.h3')}</h3>
 
       {/* Таблица пользователей */}
       <table className="user-table">
         <thead>
           <tr>
-            <th>Login</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>Role</th>
-            <th>Actions</th>
+            <th>{t('SettingsTabs.UserTabs.Login')}</th>
+            <th>{t('SettingsTabs.UserTabs.Name')}</th>
+            <th>{t('SettingsTabs.UserTabs.Surname')}</th>
+            <th>{t('SettingsTabs.UserTabs.Department')}</th>
+            <th>{t('SettingsTabs.UserTabs.Position')}</th>
+            <th>{t('SettingsTabs.UserTabs.Role')}</th>
+            <th>{t('SettingsTabs.UserTabs.Actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -120,7 +121,7 @@ export default  function UserSettings() {
               <td>{user.role}</td>
               <td>
                 <button className="delete-btn" onClick={() => deleteUser(user.userId)}>
-                  Delete
+                  {t('SettingsTabs.UserTabs.Delete')}
                 </button>
               </td>
             </tr>
@@ -130,7 +131,7 @@ export default  function UserSettings() {
 
       {/* Кнопка добавления пользователя */}
       <button className="add-user-btn" onClick={toggleModal}>
-        Add User
+        {t('SettingsTabs.UserTabs.AddUser')}
       </button>
 
       {/* Модальное окно */}
@@ -140,7 +141,7 @@ export default  function UserSettings() {
             <h4>{editingUser ? "Edit User" : "Add New User"}</h4>
             <form>
               <label>
-                Name:
+                {t('SettingsTabs.UserTabs.Name')}
                 <input
                   type="text"
                   name="name"
@@ -150,7 +151,7 @@ export default  function UserSettings() {
                 />
               </label>
                             <label>
-                Surname:
+                {t('SettingsTabs.UserTabs.Surname')}
                 <input
                   type="text"
                   name="surname"
@@ -160,7 +161,7 @@ export default  function UserSettings() {
                 />
               </label>
               <label>
-                Login:
+                {t('SettingsTabs.UserTabs.Login')}
                 <input
                   type="text"
                   name="login"
@@ -170,7 +171,7 @@ export default  function UserSettings() {
                 />
               </label>
               <label>
-                Department:
+                {t('SettingsTabs.UserTabs.Department')}
                 <input
                   type="text"
                   name="department"
@@ -180,7 +181,7 @@ export default  function UserSettings() {
                 />
               </label>
               <label>
-                Position:
+                {t('SettingsTabs.UserTabs.Position')}
                 <input
                   type="text"
                   name="position"
@@ -190,7 +191,7 @@ export default  function UserSettings() {
                 />
               </label>
               <label>
-                Password:
+                {t('SettingsTabs.UserTabs.Password')}
                 <input
                   type="password"
                   name="password"
@@ -200,7 +201,7 @@ export default  function UserSettings() {
                 />
               </label>
               <label>
-                Role:
+                {t('SettingsTabs.UserTabs.Role')}
                 <select name="role" value={newUser.role} className="custom-select" onChange={handleInputChange}>
                   <option value="ADMIN">Admin</option>
                   <option value="USER">User</option>
@@ -208,14 +209,14 @@ export default  function UserSettings() {
               </label>
               <div className="modal-actions">
                 <button type="button" className="cancel-btn" onClick={toggleModal}>
-                  Cancel
+                  {t('SettingsTabs.UserTabs.Cancel')}
                 </button>
                 <button
                   type="button"
                   className="save-btn"
                   onClick={editingUser ? editUser : addUser}
                 >
-                  Save
+                  {t('SettingsTabs.UserTabs.Save')}
                 </button>
               </div>
             </form>

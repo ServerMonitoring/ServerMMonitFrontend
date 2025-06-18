@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../state/slice/authslice";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../state/store";
+import { useTranslation } from "react-i18next";
 
 export default function Avatar(){
+      const {t} = useTranslation();
       const urlLogin = "/auth"
-        // Получаем ник из Redux
       const username = useSelector((state: RootState) => state.auth.user.username);
       const urlLK = "/profile"
       const navigator = useNavigate();
@@ -15,12 +16,12 @@ export default function Avatar(){
       const [isMenuOpen, setIsMenuOpen] = useState(false);
       const handleOpenProfileClick = () => {
           navigator(urlLK);
-          setIsMenuOpen(false); // Закрываем меню после выбора
+          setIsMenuOpen(false); 
         };
         const handleGotoHomeClick = () => {
           dispatch(logout());
           navigator(urlLogin);
-          setIsMenuOpen(false); // Закрываем меню после выбора
+          setIsMenuOpen(false); 
         };
     return(
         <>
@@ -32,12 +33,12 @@ export default function Avatar(){
         <ul className="dropdown-menu">
           <li>
             <a onClick={()=>{handleOpenProfileClick()}}>
-              Профиль
+              {t('Avatar.Profile')}
             </a>
           </li>
           <li>
             <a onClick={() => {handleGotoHomeClick()}}>
-              Выйти из Аккаунта
+              {t('Avatar.Logout')}
             </a>
           </li>
         </ul>

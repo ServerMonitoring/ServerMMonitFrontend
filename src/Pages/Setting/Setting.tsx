@@ -6,11 +6,12 @@ import OtherSettings from "../../Component/Setting/TabOtherSetting/OtherSetting"
 import ServerSettings from "../../Component/Setting/TabServerSetting/ServerSetting";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
-// Компонент для вкладок
+import { useTranslation } from "react-i18next";
+
 const SettingsPage = () => {
-    const [activeTab, setActiveTab] = useState("design-settings"); // Состояние активной вкладки
+  const {t}=useTranslation();
+    const [activeTab, setActiveTab] = useState("design-settings"); 
     const userRole = useSelector((state: RootState) => state.auth.user.role);
-    // Обработчик переключения вкладок
     const handleTabClick = (tab:string) => {
       setActiveTab(tab);
     };
@@ -18,7 +19,7 @@ const SettingsPage = () => {
     return (
       <main className="netdata-content">
         <section id="settings" className="page active">
-          <h2>Settings</h2>
+          <h2>{t('Setting.h2')}</h2>
           {
 
              userRole == 'ADMIN'? <div className="tabs">
@@ -26,19 +27,19 @@ const SettingsPage = () => {
                className={`tab-button ${activeTab === "user-settings" ? "active" : ""}`}
                onClick={() => handleTabClick("user-settings")}
              >
-               User
+               {t('Setting.User')}
              </button>
              <button
                className={`tab-button ${activeTab === "server-settings" ? "active" : ""}`}
                onClick={() => handleTabClick("server-settings")}
              >
-               Server
+               {t('Setting.Server')}
              </button>
              <button
                className={`tab-button ${activeTab === "design-settings" ? "active" : ""}`}
                onClick={() => handleTabClick("design-settings")}
              >
-               Design Settings
+               {t('Setting.Design')}
              </button>
 {           //  <button
             //   className={`tab-button ${activeTab === "other-settings" ? "active" : ""}`}
@@ -52,7 +53,7 @@ const SettingsPage = () => {
               className={`tab-button ${activeTab === "design-settings" ? "active" : ""}`}
               onClick={() => handleTabClick("design-settings")}
             >
-              Design Settings
+              {t('Setting.Design')}
             </button>
 {       //     <button
           //    className={`tab-button ${activeTab === "other-settings" ? "active" : ""}`}

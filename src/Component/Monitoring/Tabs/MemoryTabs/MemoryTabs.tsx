@@ -19,41 +19,6 @@ export default function MemoryTAbs({ Timeout }){
     const matches = url.match(/\d+/g);
     return matches && matches.length > 0 ? parseInt(matches[matches.length - 1], 10) : null;
   }
-  // Функция для загрузки данных
-  /*const fetchData = async () => {
-    try {
-        const now = new Date();
-        const endTime = new Date(now.getTime() - 1 * 60 * 1000);
-        const startTime = addTimeToCurrent(Timeout)
-
-        setStartTime(startTime);
-        setEndTime(endTime.toISOString());
-
-        console.log("Начальное время"+ startTime)
-        console.log("Конечно время"+ endTime.toISOString())
-
-        await getMemoryMetrics(id,startTime,endTime,jwt)
-        .then((response)=>{
-            console.log(response)
-            setData(response)
-        })
-    } catch (error) {
-      console.error("Ошибка при загрузке данных:", error);
-    }
-  };
-      useEffect(() => {
-            fetchData(); // Загружаем данные при монтировании
-
-            const intervalId = setInterval(() => {
-            fetchData(); // Загружаем данные каждую минуту
-
-            }, 60000); // 60000 мс = 1 минута
-
-    // Очистка интервала при размонтировании
-    return () => clearInterval(intervalId);
-  }, [Timeout]);*/
-
-    // Функция для загрузки данных
     const fetchData = async (start: string, end: string) => {
         try {
             const response = await getMemoryMetrics(id, start, end, jwt);
@@ -63,7 +28,6 @@ export default function MemoryTAbs({ Timeout }){
         }
     };
 
-    // Перерасчёт времени и вызов fetchData
     const updateTimeAndFetch = () => {
         const now = new Date();
         const end = new Date(now.getTime() - 1 * 60 * 1000).toISOString();
@@ -79,10 +43,10 @@ export default function MemoryTAbs({ Timeout }){
     };
 
     useEffect(() => {
-        updateTimeAndFetch(); // при монтировании и смене Timeout
+        updateTimeAndFetch(); 
 
         const intervalId = setInterval(() => {
-            updateTimeAndFetch(); // каждую минуту
+            updateTimeAndFetch(); 
         }, 65000);
 
         return () => clearInterval(intervalId);

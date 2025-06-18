@@ -1,4 +1,87 @@
-{
+{   
+    "Avatar":{
+        "Profile":"Profile",
+        "Logout":" Logout"
+    },
+    "Profile":{
+        "h1":"Your Profile",
+        "h2":"Change password",
+        "labelone":"Password",
+        "labeltwo":"New password",
+        "labelFree":"Confirm Password",
+        "button":"Save"
+    },
+    "Setting":{
+        "h2":"Settings",
+        "Design":"Design",
+        "User":"Users",
+        "Server":"Server"
+    },
+    "SettingTabs":{
+        "UserTabs":{
+            "h3":"User Settings",
+            "Login":"Login",
+            "Name":"Name",
+            "Surname":"Surname",
+            "Department":"Department",
+            "Position":"Position",
+            "Role":"Role",
+            "Actions":"Actions",
+            "Delete":"Delete",
+            "AddUser":"Add User",
+            "Password":"Password",
+            "Cancel":"Cancel",
+            "Save":"Save"
+
+        },
+        "ServerTabs":{
+            "h3":"Server Settings",
+            "h4":"Add New Server",
+            "Name":"Name",
+            "IP":"IP address",
+            "Hostname": "Hostname",
+            "Delete":"Delete",
+            "AddServer":"Add Server",
+            "Token":"Server Token",
+            "Close":"Close",
+            "Edit":"Edit"
+        },
+        "DesignTabs":{
+            "h3":"Design Settings",
+            "labelone":"Theme",
+            "Black": "Dark",
+            "White":"White",
+            "Language":"Language"
+        }
+    },
+    "ContentTabs":{
+        "Time":{
+            "Oneminutes":"1 minutes",
+            "fiveminutes":"5 minutes",
+            "fiveteenminutes":"15 minutes",
+            "Onehour":"1 hour",
+            "Oneday":"1 day",
+            "Oneweek":"1 week",
+            "OneMorth":"1 month"
+        },
+        "Metric":{
+            "General":"General",
+            "CPU":"CPU",
+            "Memory":"Memory",
+            "Disk":"Disk",
+            "GPU":"GPU",
+            "Network":"Network",
+            "Swap":"Swap"
+        },
+        "ServerInfoTabs":{
+            "Status":"",
+            "Address":"Address",
+            "OS":"OS",
+            "CPU":"CPU",
+            "Memory":"Memory",
+            "Disk":"Disk"
+        }
+    },
     "Login":{
         "H2":"Welcome!",
         "p":"Please log in to continue.",
@@ -19,6 +102,21 @@
             
         }
     },
+    "GeneralTabs":{
+  "cpuModel": "CPU Model",
+  "cpuCoresPhysical": "Number of cores (physical)",
+  "cpuCoresLogical": "Number of cores (logical)",
+  "maxFrequency": "Max frequency",
+  "minFrequency": "Min frequency",
+  "notSpecified": "Not specified",
+  "loadingData": "Loading data...",
+    "serverName": "Server name",
+  "ipAddress": "IP address",
+  "osInfo": "Operating system",
+  "additionalInfo": "Additional info"
+    },
+    "MenuServers":"Servers",
+    "Loading":"Loading...",
     "NotFound":{
         "h1":"404",
         "p":"Oops! The page you're looking for doesn't exist.",
@@ -43,8 +141,5 @@
         "ElementHelp":"Help",
         "ElementSetting":"Setting",
         "ElementServer":"Server"
-    },
-    "Avatar":{
-
     }
 }

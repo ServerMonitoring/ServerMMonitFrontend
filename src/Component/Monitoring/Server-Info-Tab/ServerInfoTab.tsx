@@ -1,5 +1,6 @@
 import React from "react";
 import "./ServerInfoTab.scss"
+import { useTranslation } from "react-i18next";
 
 interface Server {
   id: number;
@@ -17,27 +18,29 @@ interface ServerInfoTabProps {
 }
 
 const ServerInfoTab: React.FC<ServerInfoTabProps> = ({ server }) => {
+  const {t}=useTranslation();
+
   return (
     <div className="server-info-tab">
       <h2>{server.name}</h2>
       <ul className="info-list">
         <li>
-          <strong>Status:</strong> {server.status === "online" ? "Online" : "Offline"}
+          <strong>{t('ContentTabs.ServerInfoTabs.Status')}</strong> {server.status === "online" ? "Online" : "Offline"}
         </li>
         <li>
-          <strong>Address:</strong> {server.address}
+          <strong>{t('ContentTabs.ServerInfoTabs.Address')}</strong> {server.address}
         </li>
         <li>
-          <strong>OS:</strong> {server.os}
+          <strong>{t('ContentTabs.ServerInfoTabs.OS')}</strong> {server.os}
         </li>
         <li>
-          <strong>CPU:</strong> {server.cpu}
+          <strong>{t('ContentTabs.ServerInfoTabs.CPU')}</strong> {server.cpu}
         </li>
         <li>
-          <strong>Memory:</strong> {server.memory}
+          <strong>{t('ContentTabs.ServerInfoTabs.Memory')}</strong> {server.memory}
         </li>
         <li>
-          <strong>Disk:</strong> {server.disk}
+          <strong>{t('ContentTabs.ServerInfoTabs.Disk')}</strong> {server.disk}
         </li>
       </ul>
     </div>

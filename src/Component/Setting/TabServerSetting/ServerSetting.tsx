@@ -3,6 +3,7 @@ import "./ServerSettings.scss";
 import { getmininfoServer } from "../../../API/serverapi";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../state/RootReduceer";
+import { useTranslation } from "react-i18next";
 
 interface Server {
   idserver: number;
@@ -21,6 +22,7 @@ interface newServer{
 export default function ServerSettings() {
   const [servers, setServers] = useState<Server[]>([
   ]);
+  const {t}=useTranslation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [token,settoken]= useState("");
@@ -65,15 +67,15 @@ export default function ServerSettings() {
 
   return (
     <div className="server-settings">
-      <h3>Server Settings</h3>
+      <h3>{t('SettingsTabs.ServerTabs.h3')}</h3>
 
       {/* Таблица серверов */}
       <table className="server-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>IP Address</th>
-            <th>Hostname</th>
+            <th>{t('SettingsTabs.ServerTabs.Name')}</th>
+            <th>{t('SettingsTabs.ServerTabs.IP')}</th>
+            <th>{t('SettingsTabs.ServerTabs.Hostname')}</th>
             <th></th>
             <th></th>
           </tr>
@@ -86,32 +88,28 @@ export default function ServerSettings() {
               <td>{server.hostname}</td>
               <td>
                 <button className="delete-btn" onClick={() => deleteServer(server.idserver)}>
-                  Delete
+                 {t('SettingsTabs.ServerTabs.Delete')}
                 </button>
               </td>
               <td>
                 <button className="delete-btn" onClick={() => deleteServer(server.idserver)}>
-                  Edit
+                  {t('SettingsTabs.ServerTabs.Edit')}
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/* Кнопка добавления сервера */}
       <button className="add-server-btn" onClick={toggleModal}>
-        Add Server
+        {t('SettingsTabs.ServerTabs.AddServer')}
       </button>
-
-      {/* Модальное окно */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal">
-            <h4>Add New Server</h4>
+            <h4>{t('SettingsTabs.ServerTabs.h4')}</h4>
             <form>
               <label>
-                Name:
+                {t('SettingsTabs.ServerTabs.Name')}
                 <input
                   type="text"
                   name="name"
@@ -121,7 +119,7 @@ export default function ServerSettings() {
                 />
               </label>
               <label>
-                IP Address:
+                {t('SettingsTabs.ServerTabs.IP')}
                 <input
                   type="text"
                   name="ip"
@@ -131,10 +129,10 @@ export default function ServerSettings() {
                 />
               </label>
                 <button type="button" className="delete-btn" onClick={addServer}>
-                  Add Server
+                 {t('SettingsTabs.ServerTabs.AddServer')}
                 </button>
                             <label>
-                Cерверный токен:
+                {t('SettingsTabs.ServerTabs.Token')}
                 <input
                   type="text"
                   name="Token"
@@ -145,7 +143,7 @@ export default function ServerSettings() {
               </label>
               <div className="modal-actions">
                 <button type="button" className="delete-btn" onClick={toggleModal}>
-                  Close
+                 {t('SettingsTabs.ServerTabs.Close')}
                 </button>
               </div>
             </form>

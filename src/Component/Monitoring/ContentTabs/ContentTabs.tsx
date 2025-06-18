@@ -9,6 +9,7 @@ import MetricsAbs from "../Tabs/MetrisTabs/MetrisTabs";
 import NetworkTAbs from "../Tabs/NetworkTabs/NetworkTabs";
 import SwapTAbs from "../Tabs/SwapTabs/SwapTabs";
 import "./Timerange.scss";
+import { useTranslation } from "react-i18next";
 
 interface Metrics {
   cpu: number[];
@@ -19,6 +20,7 @@ interface Metrics {
 
 
 const ContentTabs: React.FC = () => {
+  const {t}=useTranslation();
   const [activeTab, setActiveTab] = useState("cpu");
   const [Timeout, setTimeRange] = useState("5m"); // По умолчанию "1 час"
   const [isTimeSelectorVisible, setIsTimeSelectorVisible] = useState(false); // Видимость переключателя времени
@@ -47,43 +49,43 @@ const ContentTabs: React.FC = () => {
               className={Timeout === "1m" ? "active" : ""}
               onClick={() => setTimeRange("1m")}
             >
-              1 Minute
+              {t('ContentTabs.Time.Oneminutes')}
             </button>
             <button
               className={Timeout === "5m" ? "active" : ""}
               onClick={() => setTimeRange("5m")}
             >
-              5 Minutes
+              {t('ContentTabs.Time.fiveminutes')}
             </button>
             <button
               className={Timeout === "15m" ? "active" : ""}
               onClick={() => setTimeRange("15m")}
             >
-              15 Minutes
+              {t('ContentTabs.Time.fiveteenminutes')}
             </button>
             <button
               className={Timeout === "1h" ? "active" : ""}
               onClick={() => setTimeRange("1h")}
             >
-              1 Hour
+              {t('ContentTabs.Time.Onehour')}
             </button>
             <button
               className={Timeout === "1d" ? "active" : ""}
               onClick={() => setTimeRange("1d")}
             >
-              1 Day
+              1{t('ContentTabs.Time.Oneday')}
             </button>
             <button
               className={Timeout === "1w" ? "active" : ""}
               onClick={() => setTimeRange("1w")}
             >
-              1 Week
+              {t('ContentTabs.Time.Oneweek')}
             </button>
             <button
               className={Timeout === "1M" ? "active" : ""}
               onClick={() => setTimeRange("1M")}
             >
-              1 Month
+              {t('ContentTabs.Time.OneMorth')}
             </button>
           </div>
         )}
@@ -94,44 +96,44 @@ const ContentTabs: React.FC = () => {
             className={`tab-button ${activeTab === "Общие характеристики" ? "active" : ""}`}
             onClick={() => setActiveTab("Общие характеристики")}
           >
-            Общие характеристики
+            {t('ContentTabs.Metric.General')}
           </button>
           <button
             className={`tab-button ${activeTab === "cpu" ? "active" : ""}`}
             onClick={() => setActiveTab("cpu")}
           >
-            CPU
+            {t('ContentTabs.Metric.CPU')}
           </button>
           <button
             className={`tab-button ${activeTab === "memory" ? "active" : ""}`}
             onClick={() => setActiveTab("memory")}
           >
-            Memory
+            {t('ContentTabs.Metric.Memory')}
           </button>
           <button
             className={`tab-button ${activeTab === "disk" ? "active" : ""}`}
             onClick={() => setActiveTab("disk")}
           >
-            Disk
+            {t('ContentTabs.Metric.Disk')}
           </button>
           <button
             className={`tab-button ${activeTab === "gpu" ? "active" : ""}`}
             onClick={() => setActiveTab("gpu")}
           >
-            GPU
+            {t('ContentTabs.Metric.GPU')}
           </button>
 
           <button
             className={`tab-button ${activeTab === "network" ? "active" : ""}`}
             onClick={() => setActiveTab("network")}
           >
-            Network
+            {t('ContentTabs.Metric.Network')}
           </button>
           <button
             className={`tab-button ${activeTab === "swap" ? "active" : ""}`}
             onClick={() => setActiveTab("swap")}
           >
-            Swap
+            {t('ContentTabs.Metric.Swap')}
           </button>
         </div>
       </div>

@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./ProfileUser.scss";
 import { RootState } from "../../state/store";
+import { useTranslation } from "react-i18next";
 
 export default function ProfileUser() {
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
+  const {t} =useTranslation();
   // Получаем ник из Redux
   const username = useSelector((state: RootState) => state.auth.user.username);
 
@@ -36,57 +37,46 @@ export default function ProfileUser() {
 
   return (
     <div className="profile-container">
-      {/* Аватарка */}
       <div className="user-avatar" id="user-avatar">
         <span>{username?.charAt(0).toUpperCase()}</span>
       </div>
-
-      {/* Заголовок */}
-      <h1>Твой профиль</h1>
-
-      {/* Форма для смены пароля */}
+      <h1>{t('Profile.h1')}</h1>
       <form className="password-form" onSubmit={handleSubmit}>
-        <h2>Смена пароля</h2>
-
-        {/* Текущий пароль */}
+        <h2>{t('Profile.h2')}</h2>
         <label>
-          Текущий пароль:
+          {t('Profile.labelone')}
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Введите текущий пароль"
+            placeholder=""
           />
         </label>
 
-        {/* Новый пароль */}
         <label>
-          Новый пароль:
+          {t('Profile.labeltwo')}
           <input
             type="password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            placeholder="Введите новый пароль"
+            placeholder=""
           />
         </label>
 
-        {/* Подтверждение нового пароля */}
         <label>
-          Подтвердите новый пароль:
+          {t('Profile.labelfree')}
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Подтвердите новый пароль"
+            placeholder=""
           />
         </label>
 
-        {/* Сообщение об ошибке */}
         {error && <p className="error-message">{error}</p>}
 
-        {/* Кнопка отправки */}
         <button type="submit" className="save-btn">
-          Сохранить изменения
+          {t('Profile.button')}
         </button>
       </form>
     </div>

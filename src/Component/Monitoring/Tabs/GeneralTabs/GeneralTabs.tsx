@@ -3,6 +3,7 @@ import "./GeneralTabs.scss";
 import { RootState } from "../../../../state/RootReduceer";
 import  { getStaticMetrics } from "../../../../API/metric";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 interface Tab {
   id: string;
@@ -16,14 +17,12 @@ export default function ServerDetails() {
   const [isContentVisible, setIsContentVisible] = useState(true);
   const [serverData, setServerData] = useState<any>(null); // Данные сервера
   const jwt = useSelector((state: RootState) => state.auth.user.token);
-
-  // Функция для извлечения ID из URL
+  const {t}=useTranslation();
   function extractLastNumberFromURL(url: string): number | null {
     const matches = url.match(/\d+/g);
     return matches && matches.length > 0 ? parseInt(matches[matches.length - 1], 10) : null;
   }
 
-  // Загрузка данных сервера
   useEffect(() => {
     const id = extractLastNumberFromURL(window.location.href);
     if (id) {
@@ -32,7 +31,7 @@ export default function ServerDetails() {
           await getStaticMetrics(jwt, id)
           .then((response)=>{
             console.log(response.data)
-            setServerData(response.data[0]); // Сохраняем данные сервера
+            setServerData(response.data[0]); 
           })
           console.log(serverData)
         } catch (error) {
@@ -43,7 +42,6 @@ export default function ServerDetails() {
     }
   }, [jwt]);
 
-  // Генерация содержимого для вкладок на основе данных сервера
   const tabs: Tab[] = [
     {
       id: "general",
@@ -53,13 +51,13 @@ export default function ServerDetails() {
         <div className="tab-content">
           {serverData ? (
             <>
-              <p><strong>Имя сервера:</strong> {serverData.serverName || "Не указано"}</p>
-              <p><strong>IP-адрес:</strong> {serverData.address || "Не указано"}</p>
-              <p><strong>Операционная система:</strong> {serverData.osInfo || "Не указано"}</p>
-              <p><strong>Дополнительная информация:</strong> {serverData.addInfo || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.serverName')}</strong> {serverData.serverName || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.ipAddress')}</strong> {serverData.address || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.osInfo')}</strong> {serverData.osInfo || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.additionalInfo')}</strong> {serverData.addInfo || "Не указано"}</p>
             </>
           ) : (
-            <p>Загрузка данных...</p>
+            <p>{t('GeneralTabs.loadingData')}</p>
           )}
         </div>
       ),
@@ -72,14 +70,14 @@ export default function ServerDetails() {
         <div className="tab-content">
           {serverData ? (
             <>
-              <p><strong>Модель процессора:</strong> {serverData.cpuModel || "Не указано"}</p>
-              <p><strong>Количество ядер (физических):</strong> {serverData.cpuCountCoresPhysical || "Не указано"}</p>
-              <p><strong>Количество ядер (логических):</strong> {serverData.cpuCountCores || "Не указано"}</p>
-              <p><strong>Максимальная частота:</strong> {serverData.maxFreq ? `${serverData.maxFreq} MHz` : "Не указано"}</p>
-              <p><strong>Минимальная частота:</strong> {serverData.minFreq ? `${serverData.minFreq} MHz` : "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.cpuModel')}</strong> {serverData.cpuModel || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.cpuCoresPhysical')}</strong> {serverData.cpuCountCoresPhysical || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.cpuCoresLogical')}</strong> {serverData.cpuCountCores || "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.maxFrequency')}</strong> {serverData.maxFreq ? `${serverData.maxFreq} MHz` : "Не указано"}</p>
+              <p><strong>{t('GeneralTabs.minFrequency')}</strong> {serverData.minFreq ? `${serverData.minFreq} MHz` : "Не указано"}</p>
             </>
           ) : (
-            <p>Загрузка данных...</p>
+            <p>{t('GeneralTabs.loadingData')}</p>
           )}
         </div>
       ),
