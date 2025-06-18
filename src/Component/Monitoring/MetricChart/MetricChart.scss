@@ -1,0 +1,114 @@
+.metric-chart {
+  margin-bottom: 1rem;
+
+  /* Заголовок с иконкой вопроса */
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-color); /* Белый текст */
+      margin: 0;
+    }
+
+    .info-icon {
+      position: relative;
+      cursor: pointer;
+
+      .icon {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--secondary-color); /* Вторичный цвет */
+        background: var(--card-background);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2); /* Увеличение при наведении */
+        }
+      }
+
+      /* Tooltip */
+      .tooltip {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        pointer-events: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          border-width: 5px;
+          border-style: solid;
+          border-color: var(--primary-color) transparent transparent transparent;
+        }
+      }
+
+      &:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  /* Переключатель времени */
+  .time-range-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    button {
+      background: var(--card-background); /* Темный фон кнопки */
+      border: 1px solid var(--secondary-color); /* Вторичный цвет границы */
+      border-radius: 20px; /* Закругленные углы */
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-color); /* Белый текст */
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background: var(--secondary-color); /* Вторичный цвет при наведении */
+        transform: translateY(-2px); /* Легкое поднятие */
+        box-shadow: var(--shadow); /* Тень */
+      }
+
+      &.active {
+        background: var(--primary-color); /* Основной цвет для активной кнопки */
+        color: #fff; /* Белый текст */
+        border-color: var(--primary-color);
+        transform: scale(1.1); /* Легкое увеличение */
+        box-shadow: var(--shadow); /* Более заметная тень */
+      }
+    }
+  }
+
+  /* График */
+  .apexcharts-canvas {
+    background: var(--card-background); /* Темный фон графика */
+    border-radius: 8px;
+    box-shadow: var(--shadow); /* Тень */
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Netdata Enhanced Mockup</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Шапка с панелью навигации -->
+  <header class="netdata-header">
+    <div class="header-left">
+      <h1>Netdata</h1>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="servers.html">Servers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="netdata-content">
+    <section id="settings" class="page active">
+      <h2>Settings</h2>
+
+      <!-- Вкладки -->
+      <div class="tabs">
+        <button class="tab-button active" data-tab="users-table">Users</button>
+        <button class="tab-button" data-tab="servers-table">Servers</button>
+      </div>
+
+      <!-- Содержимое вкладок -->
+      <div class="tab-content active" id="users-table">
+        <div class="card">
+          <h3>Users Table</h3>
+          <button id="add-user-btn">Add New User</button>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-list">
+              <!-- Пользователи будут добавляться динамически -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="servers-table">
+        <div class="card">
+          <h3>Servers Table</h3>
+          <button id="add-server-btn">Add New Server</button>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="servers-list">
+              <!-- Серверы будут добавляться динамически -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно для добавления нового пользователя -->
+  <div id="user-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Add New User</h3>
+      <form id="add-user-form">
+        <label>
+          Username:
+          <input type="text" id="new-username" placeholder="Enter username" required>
+        </label>
+        <label>
+          Email:
+          <input type="email" id="new-email" placeholder="Enter email" required>
+        </label>
+        <label>
+          Password:
+          <input type="password" id="new-password" placeholder="Enter password" required>
+        </label>
+        <button type="submit">Save User</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Модальное окно для добавления нового сервера -->
+  <div id="server-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Add New Server</h3>
+      <form id="add-server-form">
+        <label>
+          Server Name:
+          <input type="text" id="new-server-name" placeholder="Enter server name" required>
+        </label>
+        <label>
+          Server URL:
+          <input type="url" id="new-server-url" placeholder="Enter server URL" required>
+        </label>
+        <button type="submit">Save Server</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./js/setting2.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

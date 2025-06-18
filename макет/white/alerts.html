@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts - Netdata Enhanced Mockup</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Шапка с панелью навигации -->
+  <header class="netdata-header">
+    <div class="header-left">
+      <h1>Netdata</h1>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="server.html">Servers</a></li>
+          <li>
+            <a href="alerts.html" class="notifications">
+              <span class="icon">🔔</span>
+              <span id="notification-badge" class="badge">3</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="netdata-content">
+    <section id="alerts" class="page active">
+      <h2>Alerts & Notifications</h2>
+
+      <!-- Список уведомлений -->
+      <div class="card">
+        <h3>Active Alerts</h3>
+        <ul id="alert-list">
+          <li class="alert-item">
+            <span class="alert-message">High CPU usage detected on Server 1.</span>
+            <button class="dismiss-alert" data-alert-id="1">Dismiss</button>
+          </li>
+          <li class="alert-item">
+            <span class="alert-message">Disk space low on Server 2.</span>
+            <button class="dismiss-alert" data-alert-id="2">Dismiss</button>
+          </li>
+          <li class="alert-item">
+            <span class="alert-message">Network traffic spike detected on Server 3.</span>
+            <button class="dismiss-alert" data-alert-id="3">Dismiss</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script src="./js/alert.js"></script>
+</body>
+</html>

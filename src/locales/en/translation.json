@@ -1,0 +1,50 @@
+{
+    "Login":{
+        "H2":"Welcome!",
+        "p":"Please log in to continue.",
+        "labelName":"Username",
+        "inputName":"Enter your username",
+        "labelpassword":"Password",
+        "inputpassword":"Enter your password",
+        "buttonname":"Login"
+    },
+    "Monitoring":{
+        "SideBarRight":{
+            "h2":"Servers"
+        },
+        "Tab-content":{
+
+        },
+        "Main-content":{
+            
+        }
+    },
+    "NotFound":{
+        "h1":"404",
+        "p":"Oops! The page you're looking for doesn't exist.",
+        "aname":"To the main page"
+    },
+    "Forbidden":{
+
+    },
+    "ErrorServer":{
+        "h1":"500",
+        "p1":"Oops! Something went wrong on our end.",
+        "p2":"We're working to fix the issue. Please try again later.",
+        "aname":"To the main page"
+    },
+    "Headers":{
+        "Theme":{
+            "Name": "Theme",
+            "White": "White",
+            "Black": "Black"
+        },
+        "Language":"Language",
+        "ElementHelp":"Help",
+        "ElementSetting":"Setting",
+        "ElementServer":"Server"
+    },
+    "Avatar":{
+
+    }
+}

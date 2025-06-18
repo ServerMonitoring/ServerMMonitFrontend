@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netdata Enhanced Mockup</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Шапка с панелью навигации -->
+  <header class="netdata-header">
+    <div class="header-left">
+      <h1>Netdata</h1>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="server.html">Servers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Главное меню -->
+  <aside class="netdata-sidebar">
+    <h2>Servers</h2>
+    <ul id="server-list">
+      <li><a href="#" data-server="server1">Server 1</a></li>
+      <li><a href="#" data-server="server2">Server 2</a></li>
+      <li><a href="#" data-server="server3">Server 3</a></li>
+    </ul>
+  </aside>
+
+  <!-- Основной контент -->
+  <main class="netdata-content">
+    <section id="dashboard" class="page active">
+      <div class="card">
+        <h2>Dashboard</h2>
+        <canvas id="cpu-chart"></canvas>
+        <canvas id="memory-chart"></canvas>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

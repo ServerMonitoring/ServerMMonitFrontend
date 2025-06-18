@@ -1,0 +1,40 @@
+[
+    {
+      "id": "getting-started",
+      "title": "Getting Started",
+      "content": [
+        "Welcome to Netdata! This application helps you monitor and manage your servers efficiently.",
+        "Read the <a href='#guides'>full documentation</a>."
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "Frequently Asked Questions",
+      "content": [
+        "<strong>How do I add a new server?</strong> Go to the 'Servers' page and click 'Add New Server'.",
+        "<strong>Where can I view logs?</strong> Check the 'Audit Log' page for recent actions."
+      ]
+    },
+    {
+      "id": "guides",
+      "title": "Guides",
+      "content": [
+        "Here are some useful guides to help you get started:",
+        "<ul>",
+        "<li><a href='#server-setup'>Setting up your first server</a></li>",
+        "<li><a href='#dashboard-customization'>Customizing your dashboard</a></li>",
+        "</ul>"
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "title": "Troubleshooting",
+      "content": [
+        "If you encounter issues, check the following:",
+        "<ul>",
+        "<li><strong>Server not connecting:</strong> Verify your credentials and network settings.</li>",
+        "<li><strong>Data not updating:</strong> Check your monitoring agent status.</li>",
+        "</ul>"
+      ]
+    }
+  ]

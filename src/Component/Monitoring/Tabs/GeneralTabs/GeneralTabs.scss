@@ -1,0 +1,72 @@
+
+.server-details-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--card-background);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  text-align: center;
+overflow-y: auto;
+  /* Панель вкладок */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    button {
+      background: linear-gradient(135deg, #28a745, #17a2b8); /* Градиент */
+      border: none;
+      border-radius: 10px; /* Закругленные углы */
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      color: #fff; /* Белый текст */
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transform-style: preserve-3d; /* 3D-эффект */
+      margin-right: 1em;
+
+      &:hover {
+        transform: rotateX(10deg) scale(1.1); /* 3D-эффект при наведении */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Тень */
+      }
+
+      &.active {
+        background: linear-gradient(135deg, #17a2b8, #28a745); /* Градиент для активной вкладки */
+        transform: rotateX(15deg) scale(1.2); /* Больше 3D-эффект */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .icon {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  /* Содержимое вкладки */
+  .tab-content-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tab-content {
+      p {
+        margin: 0.5rem 0;
+
+        strong {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

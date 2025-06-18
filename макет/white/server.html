@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servers - Netdata Enhanced Mockup</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Шапка с панелью навигации -->
+  <header class="netdata-header">
+    <div class="header-left">
+      <h1>Netdata</h1>
+    </div>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="#servers">Servers</a></li>
+          <li>
+            <a href="alerts.html" class="notifications">
+              <span class="icon">🔔</span>
+              <span id="notification-badge" class="badge">3</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="netdata-content">
+    <section id="servers" class="page active">
+      <h2>Manage Servers</h2>
+
+      <!-- Форма добавления сервера -->
+      <div class="card">
+        <h3>Add New Server</h3>
+        <form id="add-server-form">
+          <label>
+            Server Name:
+            <input type="text" id="server-name" placeholder="Enter server name" required>
+          </label>
+          <label>
+            Server URL:
+            <input type="url" id="server-url" placeholder="Enter server URL" required>
+          </label>
+          <button type="submit">Add Server</button>
+        </form>
+      </div>
+
+      <!-- Список серверов -->
+      <div class="card">
+        <h3>Server List</h3>
+        <ul id="server-list">
+          <!-- Серверы будут добавляться динамически -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="./js/server.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

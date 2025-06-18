@@ -1,0 +1,22 @@
+
+  .monitoring-page {
+    display: flex; /* Используем Flexbox */
+    overflow: hidden; /* Убираем прокрутку */
+  
+    /* Боковая панель */
+    .sidebar {
+      width: max-content; /* Фиксированная ширина */
+      background: var(--card-background);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+  
+    /* Основной контент */
+    .main-content {
+      flex: 1; /* Занимает оставшееся пространство */
+      padding: 1rem;
+      overflow-y: auto; /* Прокрутка внутри контента */
+      background: var(--background-color);
+    }
+  }

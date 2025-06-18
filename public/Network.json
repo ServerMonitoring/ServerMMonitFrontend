@@ -1,0 +1,13 @@
+{
+    "type": "Network",
+    "subtypes": [
+      {
+        "name": "Upload",
+        "data": [10, 15, 20, 25, 30, 35, 40]
+      },
+      {
+        "name": "Download",
+        "data": [50, 55, 60, 65, 70, 75, 80]
+      }
+    ]
+  }

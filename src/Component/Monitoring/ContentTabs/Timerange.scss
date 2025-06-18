@@ -1,0 +1,102 @@
+
+.content-tabs {
+  position: relative;
+overflow-y: auto;
+overflow-x: hidden;
+  /* Контейнер для табов и триггера */
+  .tabs-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    /* Триггер для выпадающего меню */
+    .time-range-trigger {
+      cursor: pointer;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    /* Выпадающее меню */
+    .time-range-selector {
+      position: absolute;
+      top: 100%; /* Ниже табов */
+        
+      background: var(--card-background);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      button {
+        background: transparent;
+        border: none;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: var(--primary-color);
+          color: #fff;
+        }
+
+        &.active {
+          background: var(--primary-color);
+          color: #fff;
+        }
+      }
+    }
+
+    /* Вкладки */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+
+      .tab-button {
+        background: var(--card-background);
+        border: 1px solid var(--secondary-color);
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          background: var(--secondary-color);
+          transform: scale(1.1);
+        }
+
+        &.active {
+          background: var(--primary-color);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  /* Содержимое вкладки */
+  .tab-content {
+    padding: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

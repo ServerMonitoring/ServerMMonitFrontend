@@ -1,0 +1,32 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "login": "admin_user",
+        "password": "hashed_password_123", 
+        "role": "admin"
+      },
+      {
+        "id": 2,
+        "username": "john_doe",
+        "password": "hashed_password_456",
+        "role": "user"
+      },
+      {
+        "id": 3,
+        "login": "jane_smith",
+        "password": "hashed_password_789",
+        "role": "moderator"
+      }
+    ],
+    "jwtExample": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibG9naW4iOiJhZG1pbl91c2VyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY2MjQxMjAwLCJleHAiOjE2NjYzMjczMjB9.XYZabc123XYZ",
+      "decodedPayload": {
+        "id": 1,
+        "login": "admin_user",
+        "role": "admin",
+        "iat": 1666241200,
+        "exp": 1666327320
+      }
+    }
+  }

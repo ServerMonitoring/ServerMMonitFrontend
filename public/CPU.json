@@ -1,0 +1,13 @@
+{
+    "type": "CPU",
+    "subtypes": [
+      {
+        "name": "Usage",
+        "data": [70, 75, 80, 65, 90, 85, 78]
+      },
+      {
+        "name": "Temperature",
+        "data": [60, 62, 65, 63, 68, 70, 69]
+      }
+    ]
+  }

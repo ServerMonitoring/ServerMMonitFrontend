@@ -1,0 +1,13 @@
+{
+    "type": "Memory",
+    "subtypes": [
+      {
+        "name": "Usage",
+        "data": [40, 45, 50, 55, 60, 65, 70]
+      },
+      {
+        "name": "Available",
+        "data": [60, 55, 50, 45, 40, 35, 30]
+      }
+    ]
+  }

@@ -1,0 +1,87 @@
+.user-avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-avatar span {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.3s ease;
+  }
+  .user-avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-avatar span {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.3s ease;
+  }
+  .dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    right: 0;
+    background: var(    --secondary-color);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    min-width: 150px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .user-avatar:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .dropdown-menu li {
+    margin: 0.5vh;
+  }
+  
+  .dropdown-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.581);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+  
+    

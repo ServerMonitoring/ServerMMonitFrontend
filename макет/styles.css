@@ -1,0 +1,574 @@
+
+
+
+.netdata-sidebar {
+    width: 250px;
+    background: var(--card-background);
+    padding: 1rem;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+  }
+  
+  .netdata-sidebar h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .netdata-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .netdata-sidebar li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .netdata-sidebar a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .netdata-sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+  }
+  
+  .netdata-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  .page {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  .card {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+  
+  button {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  input,
+  select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  input:focus,
+  select:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .netdata-footer {
+    background: var(--card-background);
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: var(--shadow);
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .tab-button.active {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  
+  .tab-button:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  .server-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .server-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .server-actions {
+    display: none;
+    gap: 0.5rem;
+  }
+  
+  .server-item:hover .server-actions {
+    display: flex;
+  }
+  
+  .server-actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .server-actions button:hover {
+    color: var(--primary-color);
+  }
+  
+  #server-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #alert-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .alert-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .alert-message {
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
+  .dismiss-alert {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+  }
+  
+  .dismiss-alert:hover {
+    color: #1c7430; /* Темно-зеленый при наведении */
+  }
+  
+  /* Анимация появления */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  /* styles.css */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .data-table th {
+    font-weight: 700;
+  }
+  
+  .data-table button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .data-table button:hover {
+    color: #ff4d6d;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background: var(--card-background);
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: var(--shadow);
+  }
+  
+  .close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: var(--primary-color);
+  }
+  
+  #add-user-btn,
+  #add-server-btn {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  
+  #add-user-btn:hover,
+  #add-server-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  
+  .auth-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .login-section {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .login-card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  
+  .login-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .login-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-card form label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .login-card input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .login-card input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .login-card button {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+  }
+  
+  .login-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .auth-links {
+    margin-top: 1rem;
+    display: flex;}
+    
+  
+  
+  
+  #add-server-btn {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  #add-server-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .netdata-content {
+    flex: 1;
+    padding: 1rem;
+    margin-left: 250px; /* Отступ под боковое меню */
+    overflow-y: auto;
+  }
+  
+  .page {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  .card {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+  
+  .card form label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .card form input,
+  .card form select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .card form input:focus,
+  .card form select:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .card form button {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  #server-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .server-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .server-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .server-actions {
+    display: none;
+    gap: 0.5rem;
+  }
+  
+  .server-item:hover .server-actions {
+    display: flex;
+  }
+  
+  .server-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .server-actions button:hover {
+    color: var(--primary-color);
+  }
+  
+  .netdata-footer {
+    background: var(--card-background);
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: var(--shadow);
+    color: var(--text-color);
+  }
+  
+  /* Анимация появления */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

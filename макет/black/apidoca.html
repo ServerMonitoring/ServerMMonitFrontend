@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Log - Netdata Enhanced Mockup</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section id="api-docs" class="page active">
+    <h2>API Documentation</h2>
+  
+    <div class="card">
+      <h3>Endpoints</h3>
+      <ul>
+        <li><strong>/api/v1/servers</strong> - Get list of servers.</li>
+        <li><strong>/api/v1/users</strong> - Manage users.</li>
+      </ul>
+    </div>
+  
+    <div class="card">
+      <h3>Test API</h3>
+      <form id="api-test-form">
+        <label>
+          Endpoint:
+          <input type="text" placeholder="/api/v1/servers" required>
+        </label>
+        <label>
+          Method:
+          <select>
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+        </label>
+        <button type="submit">Send Request</button>
+      </form>
+    </div>
+  </section>
+  <section id="roles" class="page active">
+    <h2>User Roles & Permissions</h2>
+  
+    <div class="card">
+      <h3>User List</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="user-role-list">
+          <tr>
+            <td>admin</td>
+            <td>admin@example.com</td>
+            <td>Admin</td>
+            <td><button>Edit Role</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="card">
+      <h3>Role Definitions</h3>
+      <ul>
+        <li><strong>Admin:</strong> Full access to all features.</li>
+        <li><strong>Editor:</strong> Can edit settings and add servers.</li>
+        <li><strong>Viewer:</strong> Read-only access.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="roles" class="page active">
+    <h2>User Roles & Permissions</h2>
+  
+    <div class="card">
+      <h3>User List</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="user-role-list">
+          <tr>
+            <td>admin</td>
+            <td>admin@example.com</td>
+            <td>Admin</td>
+            <td><button>Edit Role</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="card">
+      <h3>Role Definitions</h3>
+      <ul>
+        <li><strong>Admin:</strong> Full access to all features.</li>
+        <li><strong>Editor:</strong> Can edit settings and add servers.</li>
+        <li><strong>Viewer:</strong> Read-only access.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="backup" class="page active">
+    <h2>Backup & Restore</h2>
+  
+    <div class="card">
+      <h3>Create Backup</h3>
+      <button id="create-backup">Create Backup</button>
+    </div>
+  
+    <div class="card">
+      <h3>Available Backups</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Size</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="backup-list">
+          <tr>
+            <td>2023-10-01</td>
+            <td>500 MB</td>
+            <td>
+              <button class="restore-btn">Restore</button>
+              <button class="download-btn">Download</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="card">
+      <h3>Automatic Backup Settings</h3>
+      <label>
+        Frequency:
+        <select>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+        </select>
+      </label>
+      <button>Save Settings</button>
+    </div>
+  </section>
+  <section id="notifications" class="page active">
+    <h2>Notifications</h2>
+  
+    <div class="card">
+      <h3>Active Notifications</h3>
+      <ul id="notification-list">
+        <li>CPU usage is above 80% on Server 1.</li>
+        <li>Disk space is low on Server 2.</li>
+      </ul>
+    </div>
+  
+    <div class="card">
+      <h3>Create Notification Rule</h3>
+      <form id="notification-form">
+        <label>
+          Condition:
+          <input type="text" placeholder="e.g., CPU > 80%" required>
+        </label>
+        <label>
+          Method:
+          <select>
+            <option value="email">Email</option>
+            <option value="sms">SMS</option>
+            <option value="push">Push Notification</option>
+          </select>
+        </label>
+        <label>
+          Active:
+          <input type="checkbox" checked>
+        </label>
+        <button type="submit">Save Rule</button>
+      </form>
+    </div>
+  </section>
+  <section id="reports" class="page active">
+    <h2>Reports</h2>
+  
+    <div class="card">
+      <h3>Generate Report</h3>
+      <form id="report-form">
+        <label>
+          Select Period:
+          <select id="report-period">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </label>
+        <button type="submit">Generate Report</button>
+      </form>
+    </div>
+  
+    <div class="card">
+      <h3>Generated Data</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Server</th>
+            <th>Uptime (hours)</th>
+            <th>CPU Usage (%)</th>
+            <th>Memory Usage (%)</th>
+            <th>Disk Usage (%)</th>
+          </tr>
+        </thead>
+        <tbody id="report-data">
+          <!-- Данные будут добавляться динамически -->
+        </tbody>
+      </table>
+      <button id="export-report">Export as CSV</button>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

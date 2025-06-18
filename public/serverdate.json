@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "name": "Main Server",
+      "address": "192.168.1.10",
+      "status": "online",
+      "os": "Ubuntu 22.04",
+      "cpu": "Intel Xeon E5-2680 v4",
+      "memory": "64 GB DDR4",
+      "disk": "2 TB SSD"
+    },
+    {
+      "id": 2,
+      "name": "Backup Server",
+      "address": "192.168.1.11",
+      "status": "offline",
+      "os": "CentOS 7",
+      "cpu": "AMD Ryzen 9 5900X",
+      "memory": "32 GB DDR4",
+      "disk": "1 TB HDD"
+    }
+  ]
